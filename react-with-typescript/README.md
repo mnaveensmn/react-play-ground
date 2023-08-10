@@ -1,3 +1,7 @@
+# Project Created with Below Command
+
+npx create-react-app react-with-typescript --template typescript
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
