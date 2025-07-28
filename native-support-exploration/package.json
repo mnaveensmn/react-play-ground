@@ -9,9 +9,13 @@
     "@babel/preset-react": "^7.26.0",
     "@babel/preset-typescript": "^7.26.0",
     "@capacitor/android": "7.4.2",
+    "@capacitor/app": "7.0.1",
     "@capacitor/cli": "7.4.2",
     "@capacitor/core": "7.4.2",
+    "@capacitor/device": "7.0.1",
+    "@capacitor/haptics": "7.0.1",
     "@capacitor/ios": "7.4.2",
+    "@capacitor/toast": "7.0.1",
     "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.3.0",
@@ -43,7 +47,12 @@
     "build:webpack": "webpack --mode production --config config/webpack.prod.config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "analyze": "npm run build:webpack && open build/bundle_stats.html"
+    "analyze": "npm run build:webpack && open build/bundle_stats.html",
+    "cap:build": "npm run build:webpack && npx cap copy && npx cap sync",
+    "cap:ios": "npx cap open ios",
+    "cap:android": "npx cap open android",
+    "cap:run:ios": "npx cap run ios",
+    "cap:run:android": "npx cap run android"
   },
   "eslintConfig": {
     "extends": [
