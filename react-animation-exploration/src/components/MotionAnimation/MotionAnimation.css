@@ -1,0 +1,62 @@
+.motion-circle-box {
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  top: 30rem;
+  color: #8cdf6f;
+  border-radius: 50%;
+  background-color: #8cdf6f;
+  animation: fast-phase 0.5s ease-out forwards,
+    slow-phase 0.5s ease-in 1.5s forwards;
+}
+
+.motion-checkmark {
+  width: 8rem;
+  height: 8rem;
+  position: absolute;
+  top: 13rem;
+  opacity: 0;
+  animation: show 0.01s forwards 0.5s, hide 0.01s forwards 1.5s;
+}
+
+@keyframes show {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fast-phase {
+  0% {
+    opacity: 1;
+    transform: scale(0.1);
+    top: 30rem;
+  }
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+    top: 13rem;
+  }
+}
+
+@keyframes slow-phase {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    top: 13rem;
+  }
+  to {
+    opacity: 1;
+    transform: scale(0.1);
+    top: 30rem;
+  }
+}

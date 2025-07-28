@@ -1,0 +1,75 @@
+.scan-success {
+  width: 100%;
+  height: 95%;
+  border: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.colleqt-checkmark {
+  width: 12rem;
+  height: 24rem;
+  border: none;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+
+  --show-delay: 0.7s;
+  --hide-delay: 3.5s;
+  --fade-duration: 0.01s;
+
+  animation: show var(--fade-duration) forwards var(--show-delay),
+    hide var(--fade-duration) forwards var(--hide-delay);
+}
+
+@keyframes show {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  to {
+    opacity: 0;
+  }
+}
+
+.shopping-bag,
+.shopping-bag-animation {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shopping-bag {
+  width: 3.5rem;
+  height: 3.5rem;
+  z-index: 3;
+  opacity: 0;
+    --show-delay: 0s;   
+  --hide-delay: 5.5s;    
+  --show-again-delay: 7s;
+  --fade-duration: 0.01s;
+
+  animation: 
+    show var(--fade-duration) forwards var(--show-delay),
+    hide var(--fade-duration) forwards var(--hide-delay),
+    show var(--fade-duration) forwards var(--show-again-delay);
+}
+
+.shopping-bag-animation {
+  width: 11.5rem;
+  height: 11.5rem;
+  z-index: 4;
+  opacity: 0;
+  --show-delay: 5s;
+  --hide-delay: 7s;
+  --fade-duration: 0.01s;
+
+  animation: show var(--fade-duration) forwards var(--show-delay),
+    hide var(--fade-duration) forwards var(--hide-delay);
+}

@@ -1,0 +1,25 @@
+/* ConfettiCheckmark Component Styles */
+.confetti-checkmark-container {
+  position: relative;
+  width: 7.5rem;
+  height: 7.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.checkmark-svg {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  z-index: 1;
+}
+
+/* Confetti particles inherit from parent positioning */
+.confetti-checkmark-container .confetti-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}

@@ -1,0 +1,336 @@
+/* CSS Animation - Pure CSS recreation of MotionAnimation */
+
+/* Green Circle Animation - exactly like motion-circle-box */
+.css-circle-box {
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  top: 30rem;
+  color: #8cdf6f;
+  border-radius: 50%;
+  background-color: #8cdf6f;
+  animation: css-fast-phase 0.5s ease-out forwards,
+             css-slow-phase 0.5s ease-in 1.5s forwards,
+             css-loop 2.2s infinite 2s;
+}
+
+/* Checkmark Container - exactly like motion-checkmark */
+.css-checkmark {
+  width: 8rem;
+  height: 8rem;
+  position: absolute;
+  top: 13rem;
+  opacity: 0;
+  animation: css-show 0.01s forwards 0.5s, 
+             css-hide 0.01s forwards 1.5s,
+             css-checkmark-loop 2.2s infinite 2s;
+}
+
+/* Checkmark SVG */
+.css-checkmark-svg {
+  width: 100%;
+  height: 100%;
+  transform: scale(0) rotate(-90deg);
+  opacity: 0;
+  animation: css-checkmark-appear 0.6s forwards 0.5s,
+             css-checkmark-svg-loop 2.2s infinite 2s;
+}
+
+/* Checkmark Path - SVG path drawing */
+.css-checkmark-path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: css-path-draw 0.48s ease-in-out 0.6s forwards,
+             css-path-loop 2.2s infinite 2s;
+}
+
+/* Confetti Container */
+.css-confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Confetti Pieces */
+.css-confetti-piece {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: css-confetti-burst 0.6s ease-out 0.5s forwards,
+             css-confetti-loop 2.2s infinite 2s;
+}
+
+/* Keyframe Animations */
+
+/* Circle Animations */
+@keyframes css-fast-phase {
+  0% {
+    opacity: 1;
+    transform: scale(0.1);
+    top: 30rem;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+    top: 13rem;
+  }
+}
+
+@keyframes css-slow-phase {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    top: 13rem;
+  }
+  to {
+    opacity: 1;
+    transform: scale(0.1);
+    top: 30rem;
+  }
+}
+
+/* Checkmark Visibility */
+@keyframes css-show {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes css-hide {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Checkmark SVG Spring Animation */
+@keyframes css-checkmark-appear {
+  0% {
+    transform: scale(0) rotate(-90deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(0deg);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.9) rotate(0deg);
+    opacity: 1;
+  }
+  85% {
+    transform: scale(1.05) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Path Drawing Animation */
+@keyframes css-path-draw {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Confetti Burst */
+@keyframes css-confetti-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--end-x, 0), var(--end-y, 0)) scale(1) rotate(var(--rotation, 0deg));
+  }
+}
+
+/* Loop Animations for infinite repeat */
+@keyframes css-loop {
+  0%, 18% {
+    opacity: 1;
+    transform: scale(0.1);
+    top: 30rem;
+  }
+  19%, 22% {
+    opacity: 1;
+  }
+  23% {
+    opacity: 0;
+    transform: scale(1);
+    top: 13rem;
+  }
+  68% {
+    opacity: 1;
+    transform: scale(1);
+    top: 13rem;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(0.1);
+    top: 30rem;
+  }
+}
+
+@keyframes css-checkmark-loop {
+  0%, 22% {
+    opacity: 0;
+  }
+  23% {
+    opacity: 1;
+  }
+  68% {
+    opacity: 1;
+  }
+  69%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes css-checkmark-svg-loop {
+  0%, 22% {
+    transform: scale(0) rotate(-90deg);
+    opacity: 0;
+  }
+  23% {
+    transform: scale(0) rotate(-90deg);
+    opacity: 0;
+  }
+  35% {
+    transform: scale(1.2) rotate(0deg);
+    opacity: 1;
+  }
+  45% {
+    transform: scale(0.9) rotate(0deg);
+    opacity: 1;
+  }
+  55% {
+    transform: scale(1.05) rotate(0deg);
+    opacity: 1;
+  }
+  60%, 68% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  69%, 100% {
+    transform: scale(0) rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes css-path-loop {
+  0%, 25% {
+    stroke-dashoffset: 100;
+  }
+  40% {
+    stroke-dashoffset: 0;
+  }
+  68% {
+    stroke-dashoffset: 0;
+  }
+  69%, 100% {
+    stroke-dashoffset: 100;
+  }
+}
+
+@keyframes css-confetti-loop {
+  0%, 22% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  23% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  68% {
+    opacity: 0;
+    transform: translate(var(--end-x, 0), var(--end-y, 0)) scale(1) rotate(var(--rotation, 0deg));
+  }
+  69%, 100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+/* Confetti Piece Variations */
+.css-confetti-1 { background: #FFD700; border-radius: 50%; --end-x: -60px; --end-y: -80px; --rotation: 720deg; }
+.css-confetti-2 { background: #FF6B6B; border-radius: 2px; --end-x: 40px; --end-y: -60px; --rotation: -540deg; }
+.css-confetti-3 { background: #4ECDC4; border-radius: 50%; --end-x: -30px; --end-y: 70px; --rotation: 900deg; }
+.css-confetti-4 { background: #8CDF6F; border-radius: 2px; --end-x: 80px; --end-y: 20px; --rotation: -720deg; }
+.css-confetti-5 { background: #FFD700; border-radius: 2px; --end-x: -70px; --end-y: -30px; --rotation: 630deg; }
+.css-confetti-6 { background: #FF6B6B; border-radius: 50%; --end-x: 50px; --end-y: -90px; --rotation: -810deg; }
+.css-confetti-7 { background: #4ECDC4; border-radius: 2px; --end-x: -90px; --end-y: 40px; --rotation: 540deg; }
+.css-confetti-8 { background: #8CDF6F; border-radius: 50%; --end-x: 20px; --end-y: 80px; --rotation: -900deg; }
+.css-confetti-9 { background: #FFD700; border-radius: 50%; --end-x: -40px; --end-y: -70px; --rotation: 720deg; }
+.css-confetti-10 { background: #FF6B6B; border-radius: 2px; --end-x: 70px; --end-y: -40px; --rotation: -630deg; }
+.css-confetti-11 { background: #4ECDC4; border-radius: 50%; --end-x: -50px; --end-y: 60px; --rotation: 810deg; }
+.css-confetti-12 { background: #8CDF6F; border-radius: 2px; --end-x: 90px; --end-y: -10px; --rotation: -540deg; }
+.css-confetti-13 { background: #FFD700; border-radius: 2px; --end-x: -80px; --end-y: -50px; --rotation: 900deg; }
+.css-confetti-14 { background: #FF6B6B; border-radius: 50%; --end-x: 30px; --end-y: -80px; --rotation: -720deg; }
+.css-confetti-15 { background: #4ECDC4; border-radius: 2px; --end-x: -60px; --end-y: 30px; --rotation: 630deg; }
+.css-confetti-16 { background: #8CDF6F; border-radius: 50%; --end-x: 60px; --end-y: 50px; --rotation: -810deg; }
+.css-confetti-17 { background: #FFD700; border-radius: 50%; --end-x: -30px; --end-y: -90px; --rotation: 540deg; }
+.css-confetti-18 { background: #FF6B6B; border-radius: 2px; --end-x: 80px; --end-y: -30px; --rotation: -900deg; }
+.css-confetti-19 { background: #4ECDC4; border-radius: 50%; --end-x: -70px; --end-y: 70px; --rotation: 720deg; }
+.css-confetti-20 { background: #8CDF6F; border-radius: 2px; --end-x: 40px; --end-y: 90px; --rotation: -630deg; }
+.css-confetti-21 { background: #FFD700; border-radius: 2px; --end-x: -90px; --end-y: -20px; --rotation: 810deg; }
+.css-confetti-22 { background: #FF6B6B; border-radius: 50%; --end-x: 70px; --end-y: -70px; --rotation: -540deg; }
+.css-confetti-23 { background: #4ECDC4; border-radius: 2px; --end-x: -40px; --end-y: 50px; --rotation: 900deg; }
+.css-confetti-24 { background: #8CDF6F; border-radius: 50%; --end-x: 50px; --end-y: 30px; --rotation: -720deg; }
+.css-confetti-25 { background: #FFD700; border-radius: 50%; --end-x: -80px; --end-y: -60px; --rotation: 630deg; }
+.css-confetti-26 { background: #FF6B6B; border-radius: 2px; --end-x: 90px; --end-y: 10px; --rotation: -810deg; }
+.css-confetti-27 { background: #4ECDC4; border-radius: 50%; --end-x: -50px; --end-y: 80px; --rotation: 540deg; }
+.css-confetti-28 { background: #8CDF6F; border-radius: 2px; --end-x: 20px; --end-y: -50px; --rotation: -900deg; }
+.css-confetti-29 { background: #FFD700; border-radius: 2px; --end-x: -70px; --end-y: 20px; --rotation: 720deg; }
+.css-confetti-30 { background: #FF6B6B; border-radius: 50%; --end-x: 60px; --end-y: -90px; --rotation: -630deg; }
+.css-confetti-31 { background: #4ECDC4; border-radius: 2px; --end-x: -20px; --end-y: 90px; --rotation: 810deg; }
+.css-confetti-32 { background: #8CDF6F; border-radius: 50%; --end-x: 80px; --end-y: 40px; --rotation: -540deg; }
+.css-confetti-33 { background: #FFD700; border-radius: 50%; --end-x: -60px; --end-y: -40px; --rotation: 900deg; }
+.css-confetti-34 { background: #FF6B6B; border-radius: 2px; --end-x: 30px; --end-y: 60px; --rotation: -720deg; }
+.css-confetti-35 { background: #4ECDC4; border-radius: 50%; --end-x: -90px; --end-y: -80px; --rotation: 630deg; }
+.css-confetti-36 { background: #8CDF6F; border-radius: 2px; --end-x: 70px; --end-y: 70px; --rotation: -810deg; }
+.css-confetti-37 { background: #FFD700; border-radius: 2px; --end-x: -30px; --end-y: -30px; --rotation: 540deg; }
+.css-confetti-38 { background: #FF6B6B; border-radius: 50%; --end-x: 90px; --end-y: -60px; --rotation: -900deg; }
+.css-confetti-39 { background: #4ECDC4; border-radius: 2px; --end-x: -40px; --end-y: 40px; --rotation: 720deg; }
+.css-confetti-40 { background: #8CDF6F; border-radius: 50%; --end-x: 40px; --end-y: -20px; --rotation: -630deg; }
+.css-confetti-41 { background: #FFD700; border-radius: 50%; --end-x: -80px; --end-y: 80px; --rotation: 810deg; }
+.css-confetti-42 { background: #FF6B6B; border-radius: 2px; --end-x: 50px; --end-y: -40px; --rotation: -540deg; }
+.css-confetti-43 { background: #4ECDC4; border-radius: 50%; --end-x: -70px; --end-y: 10px; --rotation: 900deg; }
+.css-confetti-44 { background: #8CDF6F; border-radius: 2px; --end-x: 80px; --end-y: 60px; --rotation: -720deg; }
+.css-confetti-45 { background: #FFD700; border-radius: 2px; --end-x: -50px; --end-y: -70px; --rotation: 630deg; }
+.css-confetti-46 { background: #FF6B6B; border-radius: 50%; --end-x: 60px; --end-y: 80px; --rotation: -810deg; }
+.css-confetti-47 { background: #4ECDC4; border-radius: 2px; --end-x: -60px; --end-y: -10px; --rotation: 540deg; }
+.css-confetti-48 { background: #8CDF6F; border-radius: 50%; --end-x: 20px; --end-y: -80px; --rotation: -900deg; }
+.css-confetti-49 { background: #FFD700; border-radius: 50%; --end-x: -20px; --end-y: 50px; --rotation: 720deg; }
+.css-confetti-50 { background: #FF6B6B; border-radius: 2px; --end-x: 70px; --end-y: -10px; --rotation: -630deg; }
+.css-confetti-51 { background: #4ECDC4; border-radius: 50%; --end-x: -30px; --end-y: 70px; --rotation: 810deg; }
+.css-confetti-52 { background: #8CDF6F; border-radius: 2px; --end-x: 90px; --end-y: 30px; --rotation: -540deg; }
+.css-confetti-53 { background: #FFD700; border-radius: 2px; --end-x: -70px; --end-y: -50px; --rotation: 900deg; }
+.css-confetti-54 { background: #FF6B6B; border-radius: 50%; --end-x: 30px; --end-y: 20px; --rotation: -720deg; }
+.css-confetti-55 { background: #4ECDC4; border-radius: 2px; --end-x: -90px; --end-y: 60px; --rotation: 630deg; }
+.css-confetti-56 { background: #8CDF6F; border-radius: 50%; --end-x: 40px; --end-y: -70px; --rotation: -810deg; }
+.css-confetti-57 { background: #FFD700; border-radius: 50%; --end-x: -40px; --end-y: 90px; --rotation: 540deg; }
+.css-confetti-58 { background: #FF6B6B; border-radius: 2px; --end-x: 80px; --end-y: -50px; --rotation: -900deg; }
+.css-confetti-59 { background: #4ECDC4; border-radius: 50%; --end-x: -80px; --end-y: 30px; --rotation: 720deg; }
+.css-confetti-60 { background: #8CDF6F; border-radius: 2px; --end-x: 10px; --end-y: 40px; --rotation: -630deg; }
