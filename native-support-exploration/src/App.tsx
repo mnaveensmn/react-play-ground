@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, Box } from '@mui/material';
 import { CartProvider } from './context/CartContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -40,13 +40,15 @@ const App: React.FC = () => {
       <CssBaseline />
       <CartProvider>
         <Router>
+          <Box sx={{ pb: { xs: 8, sm: 9 } }}> {/* Add bottom padding for navbar */}
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/books" element={<BooksList />} />
+              <Route path="/books/:id" element={<BookDetails />} />
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+          </Box>
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/books" element={<BooksList />} />
-            <Route path="/books/:id" element={<BookDetails />} />
-            <Route path="/cart" element={<Cart />} />
-          </Routes>
         </Router>
       </CartProvider>
     </ThemeProvider>

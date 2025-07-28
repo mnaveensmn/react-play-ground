@@ -71,55 +71,135 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <AppBar position="sticky" sx={{ bgcolor: 'primary.main' }}>
-        <Toolbar>
-          {isMobile && (
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-          )}
-          
-          <Typography
-            variant="h6"
-            component={Link}
-            to="/"
-            sx={{
-              flexGrow: 1,
-              textDecoration: 'none',
-              color: 'inherit',
-              fontWeight: 'bold',
-            }}
-          >
-            📚 BookStore
-          </Typography>
+      <AppBar 
+        position="fixed" 
+        sx={{ 
+          top: 'auto', 
+          bottom: 0, 
+          bgcolor: 'primary.main',
+          boxShadow: '0 -2px 10px rgba(0,0,0,0.1)'
+        }}
+      >
+        <Toolbar sx={{ justifyContent: 'space-around', minHeight: { xs: 64, sm: 70 } }}>
+          {isMobile ? (
+            // Mobile bottom navigation
+            <>
+              <IconButton
+                color="inherit"
+                component={Link}
+                to="/"
+                sx={{ 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  gap: 0.5,
+                  '&:hover': { bgcolor: 'rgba(255,255,255,0.1)' }
+                }}
+              >
+                <Home />
+                <Typography variant="caption">Home</Typography>
+              </IconButton>
+              
+              <IconButton
+                color="inherit"
+                component={Link}
+                to="/books"
+                sx={{ 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  gap: 0.5,
+                  '&:hover': { bgcolor: 'rgba(255,255,255,0.1)' }
+                }}
+              >
+                <Book />
+                <Typography variant="caption">Books</Typography>
+              </IconButton>
+              
+              <IconButton
+                color="inherit"
+                onClick={() => navigate('/cart')}
+                sx={{ 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  gap: 0.5,
+                  '&:hover': { bgcolor: 'rgba(255,255,255,0.1)' }
+                }}
+              >
+                <Badge badgeContent={state.totalItems} color="error">
+                  <ShoppingCart />
+                </Badge>
+                <Typography variant="caption">Cart</Typography>
+              </IconButton>
+              
+              <IconButton
+                color="inherit"
+                onClick={handleDrawerToggle}
+                sx={{ 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  gap: 0.5,
+                  '&:hover': { bgcolor: 'rgba(255,255,255,0.1)' }
+                }}
+              >
+                <MenuIcon />
+                <Typography variant="caption">Menu</Typography>
+              </IconButton>
+            </>
+          ) : (
+            // Desktop bottom navigation
+            <>
+              <Typography
+                variant="h6"
+                component={Link}
+                to="/"
+                sx={{
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  fontWeight: 'bold',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1,
+                }}
+              >
+                📚 BookStore
+              </Typography>
 
-          {!isMobile && (
-            <Box sx={{ display: 'flex', gap: 2, mr: 2 }}>
-              {menuItems.map((item) => (
-                <Button
-                  key={item.text}
-                  color="inherit"
-                  component={Link}
-                  to={item.path}
-                  startIcon={item.icon}
-                >
-                  {item.text}
-                </Button>
-              ))}
-            </Box>
-          )}
+              <Box sx={{ display: 'flex', gap: 3 }}>
+                {menuItems.map((item) => (
+                  <Button
+                    key={item.text}
+                    color="inherit"
+                    component={Link}
+                    to={item.path}
+                    startIcon={item.icon}
+                    sx={{ 
+                      '&:hover': { bgcolor: 'rgba(255,255,255,0.1)' },
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 0.5,
+                    }}
+                  >
+                    {item.text}
+                  </Button>
+                ))}
+              </Box>
 
-          <IconButton color="inherit" onClick={() => navigate('/cart')}>
-            <Badge badgeContent={state.totalItems} color="error">
-              <ShoppingCart />
-            </Badge>
-          </IconButton>
+              <IconButton 
+                color="inherit" 
+                onClick={() => navigate('/cart')}
+                sx={{ 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  gap: 0.5,
+                  '&:hover': { bgcolor: 'rgba(255,255,255,0.1)' }
+                }}
+              >
+                <Badge badgeContent={state.totalItems} color="error">
+                  <ShoppingCart />
+                </Badge>
+                <Typography variant="caption">Cart</Typography>
+              </IconButton>
+            </>
+          )}
         </Toolbar>
       </AppBar>
 
