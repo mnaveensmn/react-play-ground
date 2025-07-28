@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.mnaveensmn.app',
-  appName: 'Native Support Exploration',
+  appName: 'BookStore',
   webDir: 'build',
   server: {
     androidScheme: 'https'

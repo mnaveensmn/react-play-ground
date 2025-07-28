@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Native Support Exploration</string>
-    <string name="title_activity_main">Native Support Exploration</string>
+    <string name="app_name">BookStore</string>
+    <string name="title_activity_main">BookStore</string>
     <string name="package_name">com.mnaveensmn.app</string>
     <string name="custom_url_scheme">com.mnaveensmn.app</string>
 </resources>
