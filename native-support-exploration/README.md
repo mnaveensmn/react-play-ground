@@ -37,3 +37,24 @@ This project uses webpack configuration for bundling and includes:
 - Asset handling
 - Bundle analysis
 - Hot module replacement in development
+
+
+## Capacitor Configuration
+
+1. `npm install @capacitor/core @capacitor/cli`
+
+2. `npm install @capacitor/core @capacitor/cli`
+
+3. `npx cap init`
+
+4. `npm install @capacitor/ios @capacitor/android`
+
+5. Update the Capacitor config to use the correct build directory for webpack builds and add some basic configuration: `capacitor.config.ts`
+
+6. `npm run build:webpack`
+
+7. `npx cap add ios`
+
+8. `npx cap add android`
+
+9. `npx cap run ios` or `npx cap run android`
