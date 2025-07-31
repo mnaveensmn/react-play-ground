@@ -137,3 +137,6 @@ const RemoteButton = React.lazy(() => import('providerApp/Button'));
 - Add more components to expose/consume
 - Experiment with different module federation patterns
 - Add routing and multiple remote apps
+
+
+#npx cap run android --live-reload --host 192.0.0.2 --port 3002

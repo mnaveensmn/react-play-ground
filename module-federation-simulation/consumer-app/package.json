@@ -10,7 +10,11 @@
     "cap:run:ios": "npm run cap:build && npx cap run ios",
     "cap:run:android": "npm run cap:build && npx cap run android",
     "cap:run:ios:dev": "npx cap run ios --livereload --external",
-    "cap:run:android:dev": "npx cap run android --livereload --external"
+    "cap:run:android:dev": "npx cap run android --livereload --external",
+    "cap:debug:android": "npx cap run android --external --livereload --target",
+    "start:provider": "cd ../provider-app && npm start",
+    "dev:android": "echo '🚀 Starting provider app first...' && npm run start:provider & sleep 5 && npm run cap:run:android:dev",
+    "dev:ios": "echo '🚀 Starting provider app first...' && npm run start:provider & sleep 5 && npm run cap:run:ios:dev"
   },
   "dependencies": {
     "@capacitor/app": "7.0.1",

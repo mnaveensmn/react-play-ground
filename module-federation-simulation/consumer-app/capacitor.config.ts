@@ -13,6 +13,13 @@ const config: CapacitorConfig = {
       'localhost:3002'
     ]
   },
+  android: {
+    allowMixedContent: true,
+    captureInput: true,
+    webContentsDebuggingEnabled: true,
+    loggingBehavior: 'debug',
+    useLegacyBridge: false
+  },
   ios: {
     allowsLinkPreview: false,
     webContentsDebuggingEnabled: true,
