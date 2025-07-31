@@ -5,7 +5,18 @@ const config: CapacitorConfig = {
   appName: 'Consumer App',
   webDir: 'build',
   server: {
-    androidScheme: 'https'
+    cleartext: true,
+    allowNavigation: [
+      '192.0.0.2:3001',
+      '192.0.0.2:3002',
+      'localhost:3001',
+      'localhost:3002'
+    ]
+  },
+  ios: {
+    allowsLinkPreview: false,
+    webContentsDebuggingEnabled: true,
+    contentInset: 'automatic'
   },
   plugins: {
     SplashScreen: {

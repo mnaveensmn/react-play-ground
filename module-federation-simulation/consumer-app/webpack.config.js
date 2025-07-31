@@ -13,6 +13,8 @@ module.exports = {
   devServer: {
     port: 3002,
     open: true,
+    host: '0.0.0.0',
+    allowedHosts: 'all',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -37,7 +39,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'consumerApp',
       remotes: {
-        providerApp: 'providerApp@http://localhost:3001/remoteEntry.js',
+        providerApp: 'providerApp@http://192.0.0.2:3001/remoteEntry.js',
       },
       shared: {
         react: { 

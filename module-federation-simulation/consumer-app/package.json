@@ -7,8 +7,10 @@
     "cap:build": "npm run build && npx cap copy && npx cap sync",
     "cap:ios": "npx cap open ios",
     "cap:android": "npx cap open android",
-    "cap:run:ios": "npx cap run ios",
-    "cap:run:android": "npx cap run android"
+    "cap:run:ios": "npm run cap:build && npx cap run ios",
+    "cap:run:android": "npm run cap:build && npx cap run android",
+    "cap:run:ios:dev": "npx cap run ios --livereload --external",
+    "cap:run:android:dev": "npx cap run android --livereload --external"
   },
   "dependencies": {
     "@capacitor/app": "7.0.1",
