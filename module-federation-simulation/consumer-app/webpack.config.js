@@ -1,9 +1,15 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
+const path = require('path');
 
 module.exports = {
   entry: './src/index.tsx',
   mode: 'development',
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    filename: '[name].js',
+    clean: true,
+  },
   devServer: {
     port: 3002,
     open: true,

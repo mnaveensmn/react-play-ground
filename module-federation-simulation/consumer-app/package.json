@@ -3,9 +3,20 @@
   "version": "1.0.0",
   "scripts": {
     "start": "webpack serve --config webpack.config.js",
-    "build": "webpack --config webpack.config.js --mode production"
+    "build": "webpack --config webpack.config.js --mode production",
+    "cap:build": "npm run build && npx cap copy && npx cap sync",
+    "cap:ios": "npx cap open ios",
+    "cap:android": "npx cap open android",
+    "cap:run:ios": "npx cap run ios",
+    "cap:run:android": "npx cap run android"
   },
   "dependencies": {
+    "@capacitor/app": "7.0.1",
+    "@capacitor/cli": "7.4.2",
+    "@capacitor/core": "7.4.2",
+    "@capacitor/device": "7.0.1",
+    "@capacitor/haptics": "7.0.1",
+    "@capacitor/toast": "7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -13,6 +24,8 @@
     "@babel/core": "^7.22.8",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
+    "@capacitor/android": "7.4.2",
+    "@capacitor/ios": "7.4.2",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "babel-loader": "^9.1.3",
