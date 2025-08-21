@@ -1,10 +1,12 @@
 import type React from "react";
-import NoteInput from "../components/NoteInput";
+import { NoteInput } from "../components/NoteInput";
 
 const MainPage: React.FC = () => {
-    return (
-        <NoteInput/>
-    );
+  const handleUserInput = (title: string, notes: string) => {
+    console.log(notes);
+  };
+
+  return <NoteInput handleUserInput={handleUserInput} />;
 };
 
 export default MainPage;
